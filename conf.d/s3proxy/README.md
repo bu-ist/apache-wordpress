@@ -1,19 +1,73 @@
 ### Proxy asset requests to S3
 
-The contents of this subdirectory comprise an apache configuration that replaces the source location for wordpress assets from:
+The contents of this subdirectory comprise an apache configuration that replaces the source location for wordpress assets from files stored in local`"/fs/"` directory mounts objects stored in S3 bucket(s).
+The implementation of this is in two parts:
 
- Files stored in local`"/fs/"` directory mounts
+1. The [https://github.com/awslabs/aws-sigv4-proxy]() repository is pulled to provide a docker build context to create an image containers can be run from to sign http requests to object lambda access points, send them, and return the response.
+   The docker container runs as a background process and is available to the apache httpd server on localhost.
+2. A modified apache configuration that recognizes specific request URI patterns that indicate assets and proxies them to the docker container for retrieval from s3.
 
-to...
+#### Prerequisites:
 
-Objects stored in S3 bucket(s)
+- The [AWS command line interface](https://aws.amazon.com/cli/)
+- Docker
+- Git
 
-In this configuration, apache will proxy requests for assets to s3 as follows:
+#### Steps:
 
-1. Use the [RewriteMap](https://httpd.apache.org/docs/2.4/mod/mod_rewrite.html#rewritemap) directive to delegate generating a proper signature required for an http request to s3 for the asset to a background process.
-   The background process "listens" with a bash script that implements steps for v4 signature creation. See:
-   - [Create a canonical request](https://docs.aws.amazon.com/general/latest/gr/create-signed-request.html#create-canonical-request)
-   - [Sig V4 header-based authentication](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-header-based-auth.html)
-2. Once the signature is created, it is added as a header in the request as it is [proxied](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypass) to an [s3 object lambda endpoint](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html).
-   The [lambda function](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-writing-lambda.html) will apply the proper security and asset manipulation as appropriate for the information presented in the request and its headers. 
+1. Log into the WordPress server.
+
+2. Build the docker image:
+
+   ```
+   cd /tmp
+   git clone https://github.com/awslabs/aws-sigv4-proxy
+   cd aws-sigv4-proxy
+   docker build -t aws-sigv4-proxy .
+   ```
+
+3. Pull this repository:
+
+   ```
+   cd /tmp
+   git clone https://github.com/bu-ist/apache-wordpress.git
+   cd apache-wordpress
+   git checkout olap
+   ```
+
+4. Copy the s3proxy subdirectory to the WordPress config directory:
+
+   ```
+   cp -r /tmp/apache-wordpress/conf.d/s3proxy /etc/httpd/conf.d
+   ```
+
+5. Add an import for the s3proxy.conf file to the main wordpress.conf file:
+
+   ```
+   sed -i -re  's|(Include conf.d/shib.conf)|\1\n\nInclude conf.d/s3proxy/s3proxy.conf|' /etc/httpd/conf.d/wordpress.conf
+   ```
+
+6. Update the `conf.d/s3proxy/credentials.env` file.
+   The docker container will sign http requests using the credentials of an IAM principal that has the privileges to access the object lambda access point. This principals credentials should be locatable in secrets manager.
+   Update the following 2 entries: `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+   *NOTE: Other values in this file have defaults - modify these as appropriate.*
+
+7. Run the docker container:
+
+   ```
+   cd /etc/httpd/conf.d/s3proxy
+   sh docker.sh run
+   ```
+
+8. Test the container:
+   Curl to an olap endpoint via the container.
+   Provide the object key, followed by a site to send in an header for the olap lambda function.
+
+   ```
+   sh docker.sh curl \
+     'admissions/files/2018/09/cuba-abroad-banner-compressed-1000x600.jpg' \
+     'jaydub-bulb.cms-devl.bu.edu'
+   ```
+
+   
 
