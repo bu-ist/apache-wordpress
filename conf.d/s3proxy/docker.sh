@@ -5,8 +5,7 @@
 # 
 # -------- Prerequisites: --------
 # 1) The aws cli
-# 2) jq must be installed
-# 3) A credentials.env file that has name=value for the following names:
+# 3) A credentials.sh file that has name=value for the following names:
 #    OLAP
 #    AWS_ACCOUNT_NBR
 #    REGION
@@ -25,7 +24,7 @@
 #      'jaydub-bulb.cms-devl.bu.edu'
 
 set -a
-source credentials.env
+source ./credentials.sh
 
 # Build the docker container
 build() {
@@ -38,13 +37,13 @@ run() {
 
   SERVICE='s3-object-lambda'
   PROXY_HOST="${OLAP}-${AWS_ACCOUNT_NBR}.${SERVICE}.${REGION}.amazonaws.com"
+  IMAGE=${CUSTOM_IMAGE:-"aws-sigv4-proxy"}
 
   docker run \
-    --rm \
     -d \
     --restart unless-stopped \
     --name proxy \
-    --env-file credentials.env \
+    --env-file credentials.sh \
     -p 8080:8080 \
     aws-sigv4-proxy \
       -v \

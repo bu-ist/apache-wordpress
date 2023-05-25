@@ -47,11 +47,12 @@ The implementation of this is in two parts:
    sed -i -re  's|(Include conf.d/shib.conf)|\1\n\nInclude conf.d/s3proxy/s3proxy.conf|' /etc/httpd/conf.d/wordpress.conf
    ```
 
-6. Update the `conf.d/s3proxy/credentials.env` file.
+6. Update the `conf.d/s3proxy/credentials.sh` file.
    The docker container will sign http requests using the credentials of an IAM principal that has the privileges to access the object lambda access point. This principals credentials should be locatable in secrets manager.
    Update the following 2 entries: `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
    *NOTE: Other values in this file have defaults - modify these as appropriate.*
-
+   *CUSTOM_IMAGE is used indicate what the docker container runs against if not the default value. Typically done if the go code that is part of the https://github.com/awslabs/aws-sigv4-proxy needs to be modified and we run a custom variant image from our own repository until such time (maybe never) the upstream authors accept a pull request for our modification*
+   
 7. Run the docker container:
 
    ```
