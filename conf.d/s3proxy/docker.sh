@@ -5,7 +5,7 @@
 # 
 # -------- Prerequisites: --------
 # 1) The aws cli
-# 3) A credentials.sh file that has name=value for the following names:
+# 2) A credentials.sh file that has name=value for the following names:
 #    OLAP
 #    AWS_ACCOUNT_NBR
 #    REGION
@@ -13,11 +13,9 @@
 #    AWS_SECRET_ACCESS_KEY
 #
 # -------- Example usage: --------
-# 1) Build the docker image:
-#    sh docker.sh build
-# 2) Run the docker image
+# 1) Run the docker image
 #    sh docker.sh run
-# 3) Curl to an olap endpoint via the container.
+# 2) Curl to an olap endpoint via the container.
 #    Provide the object key, followed by a site to send in an header for the olap lambda function.
 #    sh docker.sh curl \
 #      'admissions/files/2018/09/cuba-abroad-banner-compressed-1000x600.jpg' \
@@ -25,11 +23,6 @@
 
 set -a
 source ./credentials.sh
-
-# Build the docker container
-build() {
-  docker build -t aws-sigv4-proxy .
-}
 
 # Start the docker container
 run() {
@@ -45,7 +38,7 @@ run() {
     --name proxy \
     --env-file credentials.sh \
     -p 8080:8080 \
-    aws-sigv4-proxy \
+    $IMAGE \
       -v \
       --name $SERVICE \
       --region $REGION \

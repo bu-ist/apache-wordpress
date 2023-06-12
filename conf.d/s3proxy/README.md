@@ -1,4 +1,4 @@
-### Proxy asset requests to S3
+# Proxy asset requests to S3
 
 The contents of this subdirectory comprise an apache configuration that replaces the source location for wordpress assets from files stored in local`"/fs/"` directory mounts objects stored in S3 bucket(s).
 The implementation of this is in two parts:
@@ -7,25 +7,19 @@ The implementation of this is in two parts:
    The docker container runs as a background process and is available to the apache httpd server on localhost.
 2. A modified apache configuration that recognizes specific request URI patterns that indicate assets and proxies them to the docker container for retrieval from s3.
 
-#### Prerequisites:
+### Prerequisites:
 
 - The [AWS command line interface](https://aws.amazon.com/cli/)
 - Docker
 - Git
 
-#### Steps:
+### Steps:
 
 1. Log into the WordPress server.
 
-2. Build the docker image:
-
-   ```
-   cd /tmp
-   git clone https://github.com/awslabs/aws-sigv4-proxy
-   cd aws-sigv4-proxy
-   docker build -t aws-sigv4-proxy .
-   ```
-
+2. If needed, update the docker image within our registry.
+   See [build-image readme file](./build-image.md) for an explanation and steps
+   
 3. Pull this repository:
 
    ```
