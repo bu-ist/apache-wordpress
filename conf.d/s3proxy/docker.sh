@@ -24,13 +24,13 @@
 set -a
 source ./credentials.sh
 
+SERVICE='s3-object-lambda'
+PROXY_HOST="${OLAP}-${AWS_ACCOUNT_NBR}.${SERVICE}.${REGION}.amazonaws.com"
+IMAGE=${CUSTOM_IMAGE:-"aws-sigv4-proxy"}
+
 # Start the docker container
 run() {
   docker rm -f proxy 2> /dev/null
-
-  SERVICE='s3-object-lambda'
-  PROXY_HOST="${OLAP}-${AWS_ACCOUNT_NBR}.${SERVICE}.${REGION}.amazonaws.com"
-  IMAGE=${CUSTOM_IMAGE:-"aws-sigv4-proxy"}
 
   docker run \
     -d \
@@ -62,7 +62,7 @@ docurl() {
   curl -s \
     -o $filename \
     -H "host: ${PROXY_HOST}" \
-    -H "X-Forwarded-Host: jaydub-bulb.cms-devl.bu.edu" \
+    -H "X-Forwarded-Host: $xforward" \
     http://localhost:8080/$object_key
 }
 
