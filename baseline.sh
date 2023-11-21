@@ -10,7 +10,6 @@ refresh() {
   for file in $(git ls-tree -r --name-only $branch) ; do
     echo $file; 
     git show ${branch}:${file} > /etc/httpd/$file
-    break;
   done
 }
 
