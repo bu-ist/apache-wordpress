@@ -21,12 +21,21 @@ this file cannot necessarily be deployed as-is.
 
 OPcache settings are managed through PHP .ini files in the `php.d/` directory, which should be deployed to `/etc/php.d/` on the application servers. See `php.d/README.md` for detailed documentation on the configuration structure and effective settings.
 
-## Environments
+## Branches and Environments
 
-Configuration is consistent across:
+This repository uses branches to track configuration for each environment:
 
-- **Development**: ist-wp-app-dv01, ist-wp-app-dv02
-- **Test**: ist-wp-app-te01, ist-wp-app-te02
-- **Production**: (servers TBD)
+- **devl** branch → Development servers: ist-wp-app-dv01, ist-wp-app-dv02
+- **test** branch → Test servers: ist-wp-app-te01, ist-wp-app-te02
+- **prod** branch → Production servers (TBD)
+- **olap** branch → OLAP environment
 
 All environments run PHP 7.4.33 with Apache HTTP Server.
+
+### Current OPcache Configuration Status
+
+As of October 6, 2025 inventory:
+
+- **devl** and **test** branches have identical OPcache configuration
+- Configuration verified against actual server deployment in /etc/php.d/
+- See `OPCACHE_MIGRATION.md` for deployment procedures
