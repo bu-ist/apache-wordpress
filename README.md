@@ -27,8 +27,9 @@ This repository uses branches to track configuration for each environment:
 
 - **devl** branch → Development servers: ist-wp-app-dv01, ist-wp-app-dv02
 - **test** branch → Test servers: ist-wp-app-te01, ist-wp-app-te02
-- **prod** branch → Production servers (TBD)
+- **prod** branch → Production servers: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
 - **olap** branch → OLAP environment
+- **scripts** branch → Utility scripts for inventory collection and verification
 
 All environments run PHP 7.4.33 with Apache HTTP Server.
 

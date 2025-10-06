@@ -33,7 +33,26 @@ Due to the loading order, the **effective** OPcache settings are:
 
 ## Verification
 
-To verify the effective OPcache configuration on a server:
+### Automated Inventory Collection
+
+Use the `collect-opcache-inventory.sh` script from the **scripts** branch to collect comprehensive OPcache configuration from all environments:
+
+```bash
+# Switch to scripts branch
+git checkout scripts
+
+# Run inventory collection
+SSHUSER=your_username ./collect-opcache-inventory.sh
+
+# Or include mod_php HTTP probe
+SSHUSER=your_username VHOST=www.bu.edu ./collect-opcache-inventory.sh
+```
+
+This generates a timestamped Markdown report with configured and effective settings from all DEV, TEST, and PROD servers.
+
+### Manual Verification
+
+To verify the effective OPcache configuration on a single server:
 
 ```bash
 # Check CLI configuration
@@ -43,6 +62,9 @@ php -i | grep opcache
 php -r "echo 'opcache.enable: ' . ini_get('opcache.enable') . PHP_EOL;"
 php -r "echo 'opcache.enable_cli: ' . ini_get('opcache.enable_cli') . PHP_EOL;"
 php -r "echo 'opcache.max_accelerated_files: ' . ini_get('opcache.max_accelerated_files') . PHP_EOL;"
+
+# View configuration files
+grep -r "opcache\." /etc/php.d/
 ```
 
 ## Environment Consistency
@@ -51,7 +73,7 @@ These configuration files are deployed identically across all environments:
 
 - **Development**: ist-wp-app-dv01, ist-wp-app-dv02
 - **Test**: ist-wp-app-te01, ist-wp-app-te02
-- **Production**: (servers TBD)
+- **Production**: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
 
 All servers run **PHP 7.4.33** with consistent OPcache settings verified via inventory on October 6, 2025.
 
