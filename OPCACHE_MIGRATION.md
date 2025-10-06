@@ -40,8 +40,7 @@ php.d/
 ├── 10-opcache-site.deploy.ini        # Deployment settings
 ├── 10-opcache-site.tuned.ini         # Site-specific tuning
 ├── 99-opcache-tuned.ini              # Global tuning (loaded last)
-├── README.md                          # Comprehensive documentation
-└── verify-opcache.sh                 # Verification script
+└── README.md                          # Comprehensive documentation
 ```
 
 ### 2. Configuration File Contents
@@ -152,21 +151,29 @@ These conflicts are **intentional** and match the actual server configuration ve
 
 ## Verification
 
-### Using the Verification Script
+### Using the Inventory Collection Script
 
-Run the included verification script on any server:
+Use the comprehensive inventory collection script from the **scripts** branch:
 
 ```bash
-cd /path/to/repo/php.d
-./verify-opcache.sh
+# Switch to scripts branch
+git checkout scripts
+
+# Run inventory collection
+SSHUSER=your_username ./collect-opcache-inventory.sh
+
+# Or include mod_php HTTP probe
+SSHUSER=your_username VHOST=www.bu.edu ./collect-opcache-inventory.sh
 ```
 
 This will:
 
-1. Display repository configuration files
-2. Check effective PHP configuration
-3. Compare actual vs. expected values
-4. Report any mismatches
+1. Prompt for your SSH password once
+2. Connect to all 12 WordPress application servers (DEV, TEST, PROD)
+3. Collect configured OPcache settings from `/etc/php.d/*.ini` files
+4. Collect effective OPcache settings via PHP CLI
+5. Optionally probe mod_php configuration via HTTP
+6. Generate a timestamped Markdown report: `OPcache-Inventory-YYYY-MM-DD.md`
 
 ### Manual Verification
 
@@ -295,8 +302,8 @@ Ideal metrics:
 
 If you encounter discrepancies between the repository and server configuration:
 
-1. Run the verification script: `./php.d/verify-opcache.sh`
-2. Check the OPcache inventory document
+1. Run the inventory collection script from the **scripts** branch (see Verification section above)
+2. Check the generated OPcache inventory report
 3. Verify file load order: `php --ini`
 4. Check effective values: `php -i | grep opcache`
 
