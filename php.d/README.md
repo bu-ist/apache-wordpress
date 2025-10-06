@@ -33,7 +33,26 @@ Due to the loading order, the **effective** OPcache settings are:
 
 ## Verification
 
-To verify the effective OPcache configuration on a server:
+### Automated Inventory Collection
+
+Use the `collect-opcache-inventory.sh` script from the **verify** branch to collect comprehensive OPcache configuration from all environments:
+
+```bash
+# Switch to verify branch
+git checkout verify
+
+# Run inventory collection
+SSHUSER=dcrews ./collect-opcache-inventory.sh
+
+# Or include mod_php HTTP probe
+SSHUSER=dcrews VHOST=www.bu.edu ./collect-opcache-inventory.sh
+```
+
+This generates a timestamped Markdown report with configured and effective settings from all DEV, TEST, and PROD servers.
+
+### Manual Verification
+
+To verify the effective OPcache configuration on a single server:
 
 ```bash
 # Check CLI configuration
@@ -43,6 +62,9 @@ php -i | grep opcache
 php -r "echo 'opcache.enable: ' . ini_get('opcache.enable') . PHP_EOL;"
 php -r "echo 'opcache.enable_cli: ' . ini_get('opcache.enable_cli') . PHP_EOL;"
 php -r "echo 'opcache.max_accelerated_files: ' . ini_get('opcache.max_accelerated_files') . PHP_EOL;"
+
+# View configuration files
+grep -r "opcache\." /etc/php.d/
 ```
 
 ## Environment Consistency

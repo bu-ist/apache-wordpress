@@ -1,4 +1,5 @@
-# OPcache Configuration Migration Summary
+apache-wordpress/php.d
+/verify-opcache.sh# OPcache Configuration Migration Summary
 
 **Date**: January 2025
 **Author**: Daniel Crews
@@ -152,21 +153,29 @@ These conflicts are **intentional** and match the actual server configuration ve
 
 ## Verification
 
-### Using the Verification Script
+### Using the Inventory Collection Script
 
-Run the included verification script on any server:
+Run the inventory collection script from the **verify** branch to collect configuration from all environments:
 
 ```bash
-cd /path/to/repo/php.d
-./verify-opcache.sh
+# Switch to verify branch
+git checkout verify
+
+# Run inventory collection
+SSHUSER=dcrews ./collect-opcache-inventory.sh
+
+# Or include mod_php HTTP probe
+SSHUSER=dcrews VHOST=www.bu.edu ./collect-opcache-inventory.sh
 ```
 
 This will:
 
-1. Display repository configuration files
-2. Check effective PHP configuration
-3. Compare actual vs. expected values
-4. Report any mismatches
+1. Prompt for your SSH password once
+2. Connect to all DEV, TEST, and PROD servers
+3. Display configured settings from `/etc/php.d/*.ini` files
+4. Check effective PHP configuration via CLI
+5. Optionally probe mod_php settings via HTTP
+6. Generate a timestamped Markdown report
 
 ### Manual Verification
 
