@@ -73,7 +73,7 @@ These configuration files are deployed identically across all environments:
 
 - **Development**: ist-wp-app-dv01, ist-wp-app-dv02
 - **Test**: ist-wp-app-te01, ist-wp-app-te02
-- **Production**: (servers TBD)
+- **Production**: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
 
 All servers run **PHP 7.4.33** with consistent OPcache settings.
 

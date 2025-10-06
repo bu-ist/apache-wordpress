@@ -1,5 +1,4 @@
-apache-wordpress/php.d
-/verify-opcache.sh# OPcache Configuration Migration Summary
+# OPcache Configuration Migration Summary
 
 **Date**: January 2025
 **Author**: Daniel Crews
@@ -41,8 +40,7 @@ php.d/
 ├── 10-opcache-site.deploy.ini        # Deployment settings
 ├── 10-opcache-site.tuned.ini         # Site-specific tuning
 ├── 99-opcache-tuned.ini              # Global tuning (loaded last)
-├── README.md                          # Comprehensive documentation
-└── verify-opcache.sh                 # Verification script
+└── README.md                          # Comprehensive documentation
 ```
 
 ### 2. Configuration File Contents
@@ -234,7 +232,7 @@ These configuration files are deployed identically across all environments:
 
 - ✓ **Development**: ist-wp-app-dv01, ist-wp-app-dv02
 - ✓ **Test**: ist-wp-app-te01, ist-wp-app-te02
-- ✓ **Production**: (servers TBD)
+- ✓ **Production**: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
 
 All servers run **PHP 7.4.33** with consistent OPcache settings verified via inventory on October 6, 2025.
 
@@ -304,7 +302,7 @@ Ideal metrics:
 
 If you encounter discrepancies between the repository and server configuration:
 
-1. Run the verification script: `./php.d/verify-opcache.sh`
+1. Run the inventory collection script from the **verify** branch (see Verification section above)
 2. Check the OPcache inventory document
 3. Verify file load order: `php --ini`
 4. Check effective values: `php -i | grep opcache`
