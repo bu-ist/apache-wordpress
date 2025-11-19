@@ -66,9 +66,12 @@ The script generates a comprehensive Markdown report containing:
 
 For Apache and PHP configuration files, see:
 
-- **devl** - Development environment configuration
-- **test** - Test environment configuration
-- **prod** - Production environment configuration
+- **devl** - Development environment configuration (dv01-dv02)
+- **test** - Test environment configuration (te01-te02)
+- **prod** - Production environment configuration (pr01-pr06)
+
+All environments now running optimized OPcache settings as of Nov 19, 2025:
+- 512MB memory, 200K files, revalidate_freq=2, revalidate_path=1
 
 ## Questions or Issues
 
