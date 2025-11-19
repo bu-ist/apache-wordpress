@@ -78,14 +78,16 @@ opcache.enable=1
 opcache.enable_cli=1
 opcache.memory_consumption=512
 opcache.interned_strings_buffer=16
-opcache.max_accelerated_files=100000
+opcache.max_accelerated_files=200000
 opcache.validate_timestamps=1
 opcache.revalidate_freq=2
 opcache.save_comments=1
 opcache.enable_file_override=1
-opcache.revalidate_path=0
+opcache.revalidate_path=1
 opcache.file_cache_only=0
 ```
+
+**Updated November 19, 2025** - Phase 2 optimization completed. Increased max_accelerated_files to 200000 and enabled revalidate_path for correct symlink handling.
 
 ### 3. Updated Apache Configuration
 
@@ -113,10 +115,10 @@ Due to PHP's alphanumeric loading order, `99-opcache-tuned.ini` is loaded last a
 | `opcache.enable_cli`              | **1**           | Overrides 0 from 10-opcache-site.tuned.ini      |
 | `opcache.memory_consumption`      | **512**         | 512MB allocated                                 |
 | `opcache.interned_strings_buffer` | **16**          | 16MB for interned strings                       |
-| `opcache.max_accelerated_files`   | **100000**      | Overrides 200000 from 10-opcache-site.tuned.ini |
+| `opcache.max_accelerated_files`   | **200000**      | Optimized for multisite (Phase 2, Nov 19, 2025) |
 | `opcache.validate_timestamps`     | **1**           | Check for file changes                          |
 | `opcache.revalidate_freq`         | **2**           | Check every 2 seconds                           |
-| `opcache.revalidate_path`         | **0**           | Overrides 1 from earlier files                  |
+| `opcache.revalidate_path`         | **1**           | Validate paths (Phase 2, Nov 19, 2025)          |
 | `opcache.file_update_protection`  | **2**           | 2-second protection window                      |
 | `opcache.save_comments`           | **1**           | Preserve docblocks                              |
 | `opcache.enable_file_override`    | **1**           | Performance optimization                        |
@@ -139,15 +141,20 @@ Due to PHP's alphanumeric loading order, `99-opcache-tuned.ini` is loaded last a
 - Matches actual server deployment
 - Configured in `php.d/*.ini` files
 
-### Configuration Conflicts Resolved
+### Configuration Evolution
 
-The multi-file structure contains intentional conflicts that are resolved by load order:
+**Phase 1 (October 2025)**: Initial repository alignment
+- Multi-file structure tracked with some override conflicts
+- `max_accelerated_files` set to 100000
+- `revalidate_path` disabled (0)
 
-1. **opcache.enable_cli**: Set to 0 in `10-opcache-site.tuned.ini`, overridden to 1 in `99-opcache-tuned.ini`
-2. **opcache.max_accelerated_files**: Set to 200000 in `10-opcache-site.tuned.ini`, overridden to 100000 in `99-opcache-tuned.ini`
-3. **opcache.revalidate_path**: Set to 1 in multiple files, overridden to 0 in `99-opcache-tuned.ini`
+**Phase 2 (November 19, 2025)**: Optimization cleanup
+- **Eliminated fragile conflicts**: Cleaned up 5-file to clean 4-file structure
+- **Increased file capacity**: `max_accelerated_files` 100000 → 200000
+- **Enabled path validation**: `revalidate_path` 0 → 1 for correct symlink handling
+- Deployed consistently across all 10 servers (DEV, TEST, PROD)
 
-These conflicts are **intentional** and match the actual server configuration verified via the October 2025 inventory.
+The current configuration minimizes file override complexity while maintaining optimal settings for WordPress multisite.
 
 ## Verification
 
@@ -232,33 +239,34 @@ These configuration files are deployed identically across all environments:
 
 - ✓ **Development**: ist-wp-app-dv01, ist-wp-app-dv02
 - ✓ **Test**: ist-wp-app-te01, ist-wp-app-te02
-- ✓ **Production**: (servers TBD)
+- ✓ **Production**: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
 
-All servers run **PHP 7.4.33** with consistent OPcache settings verified via inventory on October 6, 2025.
+All servers run **PHP 7.4.33** with optimized OPcache settings:
+- **Phase 1** (October 6, 2025): Initial repository alignment
+- **Phase 2** (November 19, 2025): Optimization cleanup deployed to all 10 servers
 
 ## Performance Implications
 
-### Current Settings (Development/Test)
+### Current Settings (All Environments)
 
-The current configuration is optimized for **development and testing**:
+The current configuration is optimized for **WordPress multisite** across all environments (Phase 2, Nov 19, 2025):
 
-- `opcache.validate_timestamps=1` - Files are checked for changes
-- `opcache.revalidate_freq=2` - Checks happen every 2 seconds
+- `opcache.validate_timestamps=1` - Files are checked for changes (enables rapid development)
+- `opcache.revalidate_freq=2` - Checks happen every 2 seconds (responsive to updates)
+- `opcache.max_accelerated_files=200000` - Handles extensive plugin/theme ecosystem
+- `opcache.revalidate_path=1` - Ensures correct symlink resolution
 - `opcache.enable_cli=1` - CLI scripts benefit from OPcache (useful for WP-CLI)
 
-### Production Recommendations
+### Future Optimization Considerations
 
-For production environments, consider these optimizations:
+For maximum production performance, consider:
 
 ```ini
-; Disable timestamp validation for maximum performance
+; Disable timestamp validation for peak performance
 opcache.validate_timestamps=0
 
-; If keeping validation enabled, increase revalidation frequency
+; Or increase revalidation frequency if keeping validation enabled
 opcache.revalidate_freq=60
-
-; Consider increasing max accelerated files if needed
-opcache.max_accelerated_files=200000
 ```
 
 **Important**: With `validate_timestamps=0`, you must manually clear OPcache after deployments:
@@ -270,6 +278,8 @@ php -r "opcache_reset();"
 # Via Apache restart
 sudo systemctl restart httpd
 ```
+
+The current settings balance performance with operational flexibility for the multisite environment.
 
 ## Monitoring
 
@@ -294,9 +304,11 @@ Ideal metrics:
 
 ## References
 
-- **OPcache Inventory**: Generated October 6, 2025 by danielcrews
+- **Phase 1 Inventory**: Generated October 6, 2025 by danielcrews
+- **Phase 2 Optimization**: Completed November 19, 2025 - all 10 servers updated
 - **PHP Version**: 7.4.33 (consistent across all environments)
-- **Server Documentation**: See `php.d/README.md` for detailed configuration documentation
+- **Configuration Documentation**: See `php.d/README.md` for detailed 4-file structure
+- **Inventory Script**: Available in **scripts** branch (`collect-opcache-inventory.sh`)
 
 ## Questions or Issues
 
