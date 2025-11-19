@@ -15,21 +15,21 @@ PHP loads `.ini` files in **alphanumeric order**. The configuration values from 
 
 Due to the loading order, the **effective** OPcache settings are:
 
-| Setting                           | Value  | Source File                                                            |
-| --------------------------------- | ------ | ---------------------------------------------------------------------- |
-| `opcache.enable`                  | 1      | 99-opcache-tuned.ini                                                   |
-| `opcache.enable_cli`              | 1      | 99-opcache-tuned.ini (overrides 0 from 10-opcache-site.tuned.ini)      |
-| `opcache.memory_consumption`      | 512    | 99-opcache-tuned.ini                                                   |
-| `opcache.interned_strings_buffer` | 16     | 99-opcache-tuned.ini                                                   |
-| `opcache.max_accelerated_files`   | 100000 | 99-opcache-tuned.ini (overrides 200000 from 10-opcache-site.tuned.ini) |
-| `opcache.validate_timestamps`     | 1      | 99-opcache-tuned.ini                                                   |
-| `opcache.revalidate_freq`         | 2      | 99-opcache-tuned.ini                                                   |
-| `opcache.revalidate_path`         | 0      | 99-opcache-tuned.ini (overrides 1 from earlier files)                  |
-| `opcache.file_update_protection`  | 2      | 10-opcache-site.tuned.ini                                              |
-| `opcache.save_comments`           | 1      | 99-opcache-tuned.ini                                                   |
-| `opcache.enable_file_override`    | 1      | 99-opcache-tuned.ini                                                   |
-| `opcache.file_cache_only`         | 0      | 99-opcache-tuned.ini                                                   |
-| `opcache.huge_code_pages`         | 0      | 10-opcache.ini                                                         |
+| Setting                           | Value  | Source File                                    |
+| --------------------------------- | ------ | ---------------------------------------------- |
+| `opcache.enable`                  | 1      | 99-opcache-tuned.ini                           |
+| `opcache.enable_cli`              | 1      | 99-opcache-tuned.ini                           |
+| `opcache.memory_consumption`      | 512    | 99-opcache-tuned.ini                           |
+| `opcache.interned_strings_buffer` | 16     | 99-opcache-tuned.ini                           |
+| `opcache.max_accelerated_files`   | 200000 | 99-opcache-tuned.ini                           |
+| `opcache.validate_timestamps`     | 1      | 99-opcache-tuned.ini                           |
+| `opcache.revalidate_freq`         | 2      | 99-opcache-tuned.ini                           |
+| `opcache.revalidate_path`         | 1      | 99-opcache-tuned.ini                           |
+| `opcache.file_update_protection`  | 2      | 10-opcache-site.tuned.ini                      |
+| `opcache.save_comments`           | 1      | 99-opcache-tuned.ini                           |
+| `opcache.enable_file_override`    | 1      | 99-opcache-tuned.ini                           |
+| `opcache.file_cache_only`         | 0      | 99-opcache-tuned.ini                           |
+| `opcache.huge_code_pages`         | 0      | 10-opcache.ini                                 |
 
 ## Verification
 
