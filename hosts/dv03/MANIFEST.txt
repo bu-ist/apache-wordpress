@@ -26,6 +26,7 @@
 4453 2023-11-15 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
 3601 2023-03-09 httpd/conf.d/wordpress.conf~bad-ssl-dontuse [not recorded: backup copy]
 3656 2023-03-27 httpd/conf.d/wordpress.conf~before-asset-proxy [not recorded: backup copy]
+375 2026-10-03 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2024-01-23 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
 139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac

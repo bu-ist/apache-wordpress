@@ -35,7 +35,7 @@
 4839 2025-08-26 httpd/conf.d/wordpress.conf.pre-fix.2025-08-27-1241 [not recorded: backup copy]
 4839 2025-08-26 httpd/conf.d/wordpress.conf.pre-fix.2025-08-27-1242 [not recorded: backup copy]
 3879 2023-11-14 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
-256 2026-10-02 httpd/conf.d/zz-error-log-format.conf 0474e5e1be82
+375 2026-10-03 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
 57 2025-08-27 httpd/conf.d/zz-keepalive.conf 9c4c6d60219e
 133 2025-09-15 httpd/conf.d/zz-opcache-status.conf 6691b7f42c58
