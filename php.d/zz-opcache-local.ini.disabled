@@ -1,0 +1,3 @@
+; Local overrides (loads after 99-*)
+opcache.memory_consumption=512
+opcache.revalidate_freq=2

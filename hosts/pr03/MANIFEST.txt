@@ -1,0 +1,96 @@
+# Files collected from ist-wp-app-pr03.bu.edu on 2026-10-03 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Credentials, memory dumps and the s3proxy scripts are not listed.
+# size modified path [sha256-12 | reason not recorded]
+366 2023-05-30 httpd/conf.d/README 8935e31406a1
+2926 2023-05-30 httpd/conf.d/autoindex.conf 339f0a6bc069
+139 2024-09-23 httpd/conf.d/git.conf 171542f3f0de
+1252 2023-05-11 httpd/conf.d/php.conf 2f45408c6f0b
+1205 2024-08-01 httpd/conf.d/s3proxy/s3proxy.conf 67e69ce8b4c7
+83 2025-02-22 httpd/conf.d/server-status.conf 7cec7ab2f68e
+1389 2025-12-24 httpd/conf.d/shib.conf 15835e1abce4
+2315 2023-07-05 httpd/conf.d/shib.sp.conf 2e5c7fc9fe49
+2279 2022-10-07 httpd/conf.d/shib.sp.conf~ [not recorded: backup copy]
+9443 2023-05-30 httpd/conf.d/ssl.conf c29eef01443a
+1252 2023-05-30 httpd/conf.d/userdir.conf 7e3e5b4f1714
+824 2023-05-30 httpd/conf.d/welcome.conf 08283cb45c8a
+4598 2024-08-01 httpd/conf.d/wordpress.conf 314163f30585
+4482 2024-02-08 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
+375 2026-10-02 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
+7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
+159 2025-09-11 httpd/conf.d/zz-opcache-probe.conf 9141a089301e
+166 2025-09-15 httpd/conf.d/zz-opcache-status.conf 680ecd893c86
+3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
+139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac
+41 2023-05-30 httpd/conf.modules.d/00-lua.conf edf701795137
+1046 2026-02-03 httpd/conf.modules.d/00-mpm.conf 1a7f1530d1b5
+957 2023-05-30 httpd/conf.modules.d/00-proxy.conf c47ab2aeabb8
+41 2023-05-30 httpd/conf.modules.d/00-ssl.conf 88f04c415dbd
+88 2023-05-30 httpd/conf.modules.d/00-systemd.conf 487e7451ce2d
+451 2023-05-30 httpd/conf.modules.d/01-cgi.conf 9dd1229936b7
+423 2023-05-11 httpd/conf.modules.d/15-php.conf f351fd92b7f7
+10870 2023-07-12 httpd/conf/httpd.conf 85436843ab95
+11753 2022-01-13 httpd/conf/httpd.conf.22339.2022-10-07@13:40:52~ [not recorded: backup copy]
+10870 2023-07-09 httpd/conf/httpd.conf~ [not recorded: backup copy]
+13064 2023-05-30 httpd/conf/magic 7e94a499c846
+114 2025-09-12 php.d/10-opcache-site.deploy.ini f144fa85a8eb
+489 2025-09-17 php.d/10-opcache-site.tuned.ini 2c58378ec4cc
+144 2025-09-11 php.d/10-opcache.ini e8f827929449
+5558 2023-05-11 php.d/10-opcache.ini.bak.2025-09-05-1257 [not recorded: backup copy]
+44578 2025-02-22 php.d/15-xdebug.ini.disabled c8958b3e081b
+44 2023-05-11 php.d/20-bz2.ini e04c9d49bfbb
+54 2023-05-11 php.d/20-calendar.ini 6ebb9a646920
+48 2023-05-11 php.d/20-ctype.ini a130289a1f48
+46 2023-05-11 php.d/20-curl.ini 6cc545d1c734
+44 2023-05-11 php.d/20-dom.ini 688b2e99be12
+46 2023-05-11 php.d/20-exif.ini 7acb4b16de29
+54 2023-05-11 php.d/20-fileinfo.ini e37b5fa8a34c
+44 2023-05-11 php.d/20-ftp.ini 0ff188cda5cc
+42 2023-05-11 php.d/20-gd.ini 1df861a0153d
+52 2023-05-11 php.d/20-gettext.ini ea895d1c6138
+48 2023-05-11 php.d/20-iconv.ini 40993186bab8
+46 2023-05-11 php.d/20-imap.ini a8730d0067b4
+46 2023-05-11 php.d/20-json.ini ce4c3b0049a3
+46 2023-05-11 php.d/20-ldap.ini 79bfee758006
+54 2023-05-11 php.d/20-mbstring.ini 3329f0e8b664
+52 2023-05-11 php.d/20-mysqlnd.ini ac340cda4a4a
+44 2023-05-11 php.d/20-pdo.ini bc151403fade
+46 2023-05-11 php.d/20-phar.ini 9d5f6d2aed5c
+48 2023-05-11 php.d/20-posix.ini a6dea7b034a8
+48 2023-05-11 php.d/20-shmop.ini c532fd8c0157
+56 2023-05-11 php.d/20-simplexml.ini 39b8931c8bb0
+46 2023-05-11 php.d/20-soap.ini 51f7759263fe
+52 2023-05-11 php.d/20-sockets.ini 0e5be9bff7b2
+50 2023-05-11 php.d/20-sodium.ini e710816b0754
+52 2023-05-11 php.d/20-sqlite3.ini 543bb668d6e4
+52 2023-05-11 php.d/20-sysvmsg.ini 7a00b2ff00f4
+52 2023-05-11 php.d/20-sysvsem.ini 54decaa06d43
+52 2023-05-11 php.d/20-sysvshm.ini 1c2b0ea29f77
+46 2023-05-11 php.d/20-tidy.ini cb5e36254746
+56 2023-05-11 php.d/20-tokenizer.ini 7a42b5a7f488
+44 2023-05-11 php.d/20-xml.ini 359f3d8869e7
+56 2023-05-11 php.d/20-xmlwriter.ini 5f383d347de3
+44 2023-05-11 php.d/20-xsl.ini e4b256149a24
+50 2023-05-11 php.d/30-mysqli.ini d145866f60d7
+56 2023-05-11 php.d/30-pdo_mysql.ini 4f1072991621
+58 2023-05-11 php.d/30-pdo_sqlite.ini ad87a9983935
+56 2023-05-11 php.d/30-xmlreader.ini 97c87b57facb
+50 2023-05-11 php.d/30-xmlrpc.ini 81a88d04fa14
+2260 2022-09-19 php.d/40-apcu.ini 17a905e6d91f
+293 2023-02-27 php.d/40-igbinary.ini 56310203b7a3
+530 2023-03-10 php.d/40-imagick.ini aba02546caff
+1942 2019-12-20 php.d/40-memcache.ini bcfe5b0e46cd
+172 2020-11-28 php.d/40-msgpack.ini 0308711fb631
+62 2019-09-05 php.d/50-apc.ini 8b02f5332020
+1406 2023-03-04 php.d/50-redis.ini 4778f1607fdb
+304 2025-11-19 php.d/99-opcache-tuned.ini 8a459a1f73b8
+305 2025-09-11 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
+645 2023-05-11 php.d/opcache-default.blacklist 4eef0875e1a0
+94 2025-09-17 php.d/zz-opcache-local.ini.disabled 863c79a21164
+
+# Packages
+# ist-wp-app-pr03.bu.edu
+# 2026-10-03T18:01:16Z
+# httpd-2.4.6-99.el7.centos.1.x86_64
+# mod_ssl-2.4.6-99.el7.centos.1.x86_64
+# php-7.4.33-6.el7.remi.x86_64
+# shibboleth-3.5.2-1.el7.x86_64
