@@ -25,7 +25,7 @@ OPcache settings are managed through PHP .ini files in the `php.d/` directory, w
 
 This repository uses branches to track configuration for each environment:
 
-- **devl** branch → Development servers: ist-wp-app-dv01, ist-wp-app-dv02
+- **devl** branch → Development servers: ist-wp-app-dv01, ist-wp-app-dv02, ist-wp-app-dv03
 - **test** branch → Test servers: ist-wp-app-te01, ist-wp-app-te02
 - **prod** branch → Production servers: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
 - **olap** branch → OLAP environment
@@ -42,3 +42,9 @@ As of November 19, 2025:
 - **Optimized settings**: 512MB memory, 200K files, revalidate_freq=2, revalidate_path=1
 - Configuration verified and deployed to all DEV, TEST, and PROD servers
 - See `OPCACHE_MIGRATION.md` for deployment procedures
+
+## Host-specific files
+
+Files identical on every host in this environment are at their usual paths. A file that differs between hosts, or exists on only some of them, is under `hosts/<host>/` at the same relative path instead.
+
+`hosts/<host>/MANIFEST.txt` lists every file collected from that host (size, date, path, SHA-256 prefix) and its httpd, mod_ssl, php and shibboleth package versions. Backup copies are listed but not recorded. Credentials, memory dumps and the s3proxy scripts are not listed.

@@ -1,0 +1,115 @@
+# Files collected from ist-wp-app-dv02.bu.edu on 2026-10-03 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Credentials, memory dumps and the s3proxy scripts are not listed.
+# size modified path [sha256-12 | reason not recorded]
+211 2025-02-24 httpd/conf.d/10-prefork.conf 98391f3fe863
+366 2023-05-30 httpd/conf.d/README 8935e31406a1
+2926 2023-05-30 httpd/conf.d/autoindex.conf 339f0a6bc069
+139 2024-09-23 httpd/conf.d/git.conf 171542f3f0de
+1252 2022-12-19 httpd/conf.d/php.conf 2f45408c6f0b
+1751 2024-03-15 httpd/conf.d/s3proxy/s3proxy.conf 7fe94e952861
+315 2024-01-09 httpd/conf.d/sandboxes/lockdown.conf 0e35e35b4328
+71 2023-11-14 httpd/conf.d/sandboxes/lockdown.conf~ [not recorded: backup copy]
+83 2023-05-09 httpd/conf.d/server-status.conf 7cec7ab2f68e
+1577 2026-01-15 httpd/conf.d/shib.conf 3e806c55d758
+1389 2023-04-13 httpd/conf.d/shib.conf.bkp [not recorded: backup copy]
+1578 2023-04-13 httpd/conf.d/shib.conf~ [not recorded: backup copy]
+2342 2023-12-15 httpd/conf.d/shib.sp.conf 800f09bf9fbc
+2323 2023-01-24 httpd/conf.d/shib.sp.conf.27835.2023-12-15@14:36:35~ [not recorded: backup copy]
+1902 2023-12-08 httpd/conf.d/ssl.conf 721805b80334
+9443 2023-05-30 httpd/conf.d/ssl.conf~ [not recorded: backup copy]
+3659 2023-04-20 httpd/conf.d/standard-conf e9d2b081ebbf
+1252 2023-05-30 httpd/conf.d/userdir.conf 7e3e5b4f1714
+824 2023-05-30 httpd/conf.d/welcome.conf 08283cb45c8a
+4445 2024-01-03 httpd/conf.d/wordpress.conf cc7d1e7092de
+4282 2023-04-18 httpd/conf.d/wordpress.conf.16708.2023-04-19@13:57:01~ [not recorded: backup copy]
+4445 2024-01-03 httpd/conf.d/wordpress.conf.pre-dv02-fix.2025-08-27-1315 [not recorded: backup copy]
+4445 2024-01-03 httpd/conf.d/wordpress.conf.pre-dv02-fix.2025-08-27-1322 [not recorded: backup copy]
+4453 2023-11-15 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
+3601 2023-03-09 httpd/conf.d/wordpress.conf~bad-ssl-dontuse [not recorded: backup copy]
+3656 2023-03-27 httpd/conf.d/wordpress.conf~before-asset-proxy [not recorded: backup copy]
+7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
+159 2025-09-12 httpd/conf.d/zz-opcache-probe.conf 9141a089301e
+133 2025-09-15 httpd/conf.d/zz-opcache-status.conf 6691b7f42c58
+3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
+139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac
+41 2023-05-30 httpd/conf.modules.d/00-lua.conf edf701795137
+1114 2026-02-04 httpd/conf.modules.d/00-mpm.conf 39c69efb829a
+957 2023-05-30 httpd/conf.modules.d/00-proxy.conf c47ab2aeabb8
+41 2023-05-30 httpd/conf.modules.d/00-ssl.conf 88f04c415dbd
+88 2023-05-30 httpd/conf.modules.d/00-systemd.conf 487e7451ce2d
+451 2023-05-30 httpd/conf.modules.d/01-cgi.conf 9dd1229936b7
+423 2022-12-19 httpd/conf.modules.d/15-php.conf f351fd92b7f7
+10870 2023-11-15 httpd/conf/httpd.conf 68627cfedba4
+10872 2023-01-27 httpd/conf/httpd.conf.16584.2023-04-19@13:56:56~ [not recorded: backup copy]
+11753 2022-01-13 httpd/conf/httpd.conf.3008.2023-01-25@13:44:48~ [not recorded: backup copy]
+10872 2023-05-22 httpd/conf/httpd.conf~ [not recorded: backup copy]
+13064 2023-05-30 httpd/conf/magic 7e94a499c846
+181 2025-09-12 php.d/10-opcache-site.deploy.ini 715ea693cf56
+55 2025-08-29 php.d/10-opcache-site.ensure 7bad52b6dbf0
+327 2025-09-15 php.d/10-opcache-site.tuned.ini 24d873024efa
+66 2025-09-12 php.d/10-opcache.ini 8c9a6e296454
+5559 2025-02-21 php.d/10-opcache.ini.bak.2025-09-05-1235 [not recorded: backup copy]
+44578 2025-02-25 php.d/15-xdebug.ini c8958b3e081b
+44 2022-12-19 php.d/20-bz2.ini e04c9d49bfbb
+54 2022-12-19 php.d/20-calendar.ini 6ebb9a646920
+48 2022-12-19 php.d/20-ctype.ini a130289a1f48
+46 2022-12-19 php.d/20-curl.ini 6cc545d1c734
+44 2022-12-19 php.d/20-dom.ini 688b2e99be12
+46 2022-12-19 php.d/20-exif.ini 7acb4b16de29
+54 2022-12-19 php.d/20-fileinfo.ini e37b5fa8a34c
+44 2022-12-19 php.d/20-ftp.ini 0ff188cda5cc
+42 2022-12-19 php.d/20-gd.ini 1df861a0153d
+52 2022-12-19 php.d/20-gettext.ini ea895d1c6138
+48 2022-12-19 php.d/20-iconv.ini 40993186bab8
+46 2022-12-19 php.d/20-imap.ini a8730d0067b4
+46 2022-12-19 php.d/20-json.ini ce4c3b0049a3
+46 2022-12-19 php.d/20-ldap.ini 79bfee758006
+54 2022-12-19 php.d/20-mbstring.ini 3329f0e8b664
+52 2022-12-19 php.d/20-mysqlnd.ini ac340cda4a4a
+44 2022-12-19 php.d/20-pdo.ini bc151403fade
+46 2022-12-19 php.d/20-phar.ini 9d5f6d2aed5c
+48 2022-12-19 php.d/20-posix.ini a6dea7b034a8
+48 2022-12-19 php.d/20-shmop.ini c532fd8c0157
+56 2022-12-19 php.d/20-simplexml.ini 39b8931c8bb0
+46 2022-12-19 php.d/20-soap.ini 51f7759263fe
+52 2022-12-19 php.d/20-sockets.ini 0e5be9bff7b2
+50 2022-12-19 php.d/20-sodium.ini e710816b0754
+52 2022-12-19 php.d/20-sqlite3.ini 543bb668d6e4
+52 2022-12-19 php.d/20-sysvmsg.ini 7a00b2ff00f4
+52 2022-12-19 php.d/20-sysvsem.ini 54decaa06d43
+52 2022-12-19 php.d/20-sysvshm.ini 1c2b0ea29f77
+46 2022-12-19 php.d/20-tidy.ini cb5e36254746
+56 2022-12-19 php.d/20-tokenizer.ini 7a42b5a7f488
+44 2022-12-19 php.d/20-xml.ini 359f3d8869e7
+56 2022-12-19 php.d/20-xmlwriter.ini 5f383d347de3
+44 2022-12-19 php.d/20-xsl.ini e4b256149a24
+50 2022-12-19 php.d/30-mysqli.ini d145866f60d7
+56 2022-12-19 php.d/30-pdo_mysql.ini 4f1072991621
+58 2022-12-19 php.d/30-pdo_sqlite.ini ad87a9983935
+56 2022-12-19 php.d/30-xmlreader.ini 97c87b57facb
+50 2022-12-19 php.d/30-xmlrpc.ini 81a88d04fa14
+2260 2022-09-19 php.d/40-apcu.ini 17a905e6d91f
+293 2022-11-07 php.d/40-igbinary.ini 56310203b7a3
+530 2022-01-12 php.d/40-imagick.ini aba02546caff
+1942 2019-12-20 php.d/40-memcache.ini bcfe5b0e46cd
+172 2020-11-28 php.d/40-msgpack.ini 0308711fb631
+62 2019-09-05 php.d/50-apc.ini 8b02f5332020
+1406 2022-02-16 php.d/50-redis.ini 4778f1607fdb
+448 2025-08-29 php.d/99-opcache-symlink-safe.ini.bak-20250829-105954 [not recorded: backup copy]
+448 2025-08-29 php.d/99-opcache-symlink-safe.ini.bak-20250829-110508 [not recorded: backup copy]
+399 2025-08-29 php.d/99-opcache-symlink-safe.ini.bak-20250829-112117 [not recorded: backup copy]
+388 2025-08-29 php.d/99-opcache-symlink-safe.ini.bak-20250829-112353 [not recorded: backup copy]
+388 2025-08-29 php.d/99-opcache-symlink-safe.ini.bak-20250829-113036 [not recorded: backup copy]
+388 2025-08-29 php.d/99-opcache-symlink-safe.ini.disabled ecf12812f80e
+378 2025-11-18 php.d/99-opcache-tuned.ini 321f3e2acc26
+378 2025-09-12 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
+114 2025-02-25 php.d/99-uploads.ini ff62452a2ae8
+645 2022-12-19 php.d/opcache-default.blacklist 4eef0875e1a0
+
+# Packages
+# ist-wp-app-dv02.bu.edu
+# 2026-10-03T18:00:11Z
+# httpd-2.4.6-99.el7.centos.1.x86_64
+# mod_ssl-2.4.6-99.el7.centos.1.x86_64
+# php-7.4.33-2.el7.remi.x86_64
+# shibboleth-3.5.2-1.el7.x86_64
