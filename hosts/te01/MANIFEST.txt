@@ -18,7 +18,7 @@
 4163 2024-01-25 httpd/conf.d/wordpress.conf 7e82cf91331c
 3882 2023-04-13 httpd/conf.d/wordpress.conf.20230413 [not recorded: backup copy]
 4048 2024-01-25 httpd/conf.d/wordpress.conf.20240125 [not recorded: backup copy]
-256 2026-10-02 httpd/conf.d/zz-error-log-format.conf 0474e5e1be82
+375 2026-10-03 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
 133 2025-09-15 httpd/conf.d/zz-opcache-status.conf 6691b7f42c58
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
