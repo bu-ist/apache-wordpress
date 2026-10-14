@@ -1,11 +1,12 @@
-# Files collected from ist-wp-app-dv02.bu.edu on 2026-10-03 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
-# Credentials, memory dumps and the s3proxy scripts are not listed.
+# Files collected from ist-wp-app-dv02.bu.edu on 2026-10-14 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Credentials, memory dumps and the s3proxy scripts other than docker.sh are not listed.
 # size modified path [sha256-12 | reason not recorded]
 211 2025-02-24 httpd/conf.d/10-prefork.conf 98391f3fe863
 366 2023-05-30 httpd/conf.d/README 8935e31406a1
 2926 2023-05-30 httpd/conf.d/autoindex.conf 339f0a6bc069
 139 2024-09-23 httpd/conf.d/git.conf 171542f3f0de
 1252 2022-12-19 httpd/conf.d/php.conf 2f45408c6f0b
+2085 2026-10-14 httpd/conf.d/s3proxy/docker.sh 21ddba354da9
 1751 2024-03-15 httpd/conf.d/s3proxy/s3proxy.conf 7fe94e952861
 315 2024-01-09 httpd/conf.d/sandboxes/lockdown.conf 0e35e35b4328
 71 2023-11-14 httpd/conf.d/sandboxes/lockdown.conf~ [not recorded: backup copy]
@@ -27,6 +28,7 @@
 4453 2023-11-15 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
 3601 2023-03-09 httpd/conf.d/wordpress.conf~bad-ssl-dontuse [not recorded: backup copy]
 3656 2023-03-27 httpd/conf.d/wordpress.conf~before-asset-proxy [not recorded: backup copy]
+633 2026-10-09 httpd/conf.d/zz-deflate.conf 6446e066fe7c
 375 2026-10-03 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
 159 2025-09-12 httpd/conf.d/zz-opcache-probe.conf 9141a089301e
@@ -47,7 +49,7 @@
 13064 2023-05-30 httpd/conf/magic 7e94a499c846
 181 2025-09-12 php.d/10-opcache-site.deploy.ini 715ea693cf56
 55 2025-08-29 php.d/10-opcache-site.ensure 7bad52b6dbf0
-327 2025-09-15 php.d/10-opcache-site.tuned.ini 24d873024efa
+328 2026-10-09 php.d/10-opcache-site.tuned.ini 0cb1c4ad25b3
 66 2025-09-12 php.d/10-opcache.ini 8c9a6e296454
 5559 2025-02-21 php.d/10-opcache.ini.bak.2025-09-05-1235 [not recorded: backup copy]
 44578 2025-02-25 php.d/15-xdebug.ini c8958b3e081b
@@ -102,14 +104,14 @@
 388 2025-08-29 php.d/99-opcache-symlink-safe.ini.bak-20250829-112353 [not recorded: backup copy]
 388 2025-08-29 php.d/99-opcache-symlink-safe.ini.bak-20250829-113036 [not recorded: backup copy]
 388 2025-08-29 php.d/99-opcache-symlink-safe.ini.disabled ecf12812f80e
-378 2025-11-18 php.d/99-opcache-tuned.ini 321f3e2acc26
+379 2026-10-09 php.d/99-opcache-tuned.ini baac94d6de3d
 378 2025-09-12 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
 114 2025-02-25 php.d/99-uploads.ini ff62452a2ae8
 645 2022-12-19 php.d/opcache-default.blacklist 4eef0875e1a0
 
 # Packages
 # ist-wp-app-dv02.bu.edu
-# 2026-10-03T18:00:11Z
+# 2026-10-14T18:24:01Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-2.el7.remi.x86_64

@@ -1,10 +1,11 @@
-# Files collected from ist-wp-app-dv03.bu.edu on 2026-10-03 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
-# Credentials, memory dumps and the s3proxy scripts are not listed.
+# Files collected from ist-wp-app-dv03.bu.edu on 2026-10-14 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Credentials, memory dumps and the s3proxy scripts other than docker.sh are not listed.
 # size modified path [sha256-12 | reason not recorded]
 366 2023-05-30 httpd/conf.d/README 8935e31406a1
 2926 2023-05-30 httpd/conf.d/autoindex.conf 339f0a6bc069
 139 2024-09-23 httpd/conf.d/git.conf 171542f3f0de
 1252 2022-12-19 httpd/conf.d/php.conf 2f45408c6f0b
+2088 2026-10-14 httpd/conf.d/s3proxy/docker.sh d6885bca8af1
 1500 2024-01-09 httpd/conf.d/s3proxy/s3proxy.conf ab56f72185fe
 315 2024-01-09 httpd/conf.d/sandboxes/lockdown.conf 0e35e35b4328
 71 2023-11-14 httpd/conf.d/sandboxes/lockdown.conf~ [not recorded: backup copy]
@@ -28,6 +29,7 @@
 3656 2023-03-27 httpd/conf.d/wordpress.conf~before-asset-proxy [not recorded: backup copy]
 375 2026-10-03 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2024-01-23 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
+901 2026-10-09 httpd/conf.d/zz-opcache-endpoint.conf 5cbb6145076f
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
 139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac
 41 2023-05-30 httpd/conf.modules.d/00-lua.conf edf701795137
@@ -37,15 +39,16 @@
 88 2023-05-30 httpd/conf.modules.d/00-systemd.conf 487e7451ce2d
 451 2023-05-30 httpd/conf.modules.d/01-cgi.conf 9dd1229936b7
 423 2022-12-19 httpd/conf.modules.d/15-php.conf f351fd92b7f7
-10871 2024-01-23 httpd/conf/httpd.conf c07e796a2cda
+10870 2026-10-09 httpd/conf/httpd.conf 85436843ab95
 10872 2023-01-27 httpd/conf/httpd.conf.16584.2023-04-19@13:56:56~ [not recorded: backup copy]
 10870 2023-11-15 httpd/conf/httpd.conf.26938.2024-01-23@14:10:22~ [not recorded: backup copy]
 11753 2022-01-13 httpd/conf/httpd.conf.3008.2023-01-25@13:44:48~ [not recorded: backup copy]
 10872 2023-05-22 httpd/conf/httpd.conf~ [not recorded: backup copy]
 13064 2023-05-30 httpd/conf/magic 7e94a499c846
+328 2026-10-09 php.d/10-opcache-site.tuned.ini 0cb1c4ad25b3
 66 2025-09-12 php.d/10-opcache.ini 8c9a6e296454
 5558 2022-12-19 php.d/10-opcache.ini.bak.2025-09-05-1243 [not recorded: backup copy]
-44577 2020-09-28 php.d/15-xdebug.ini 92b7ce221dc9
+44578 2026-10-09 php.d/15-xdebug.ini c8958b3e081b
 44 2022-12-19 php.d/20-bz2.ini e04c9d49bfbb
 54 2022-12-19 php.d/20-calendar.ini 6ebb9a646920
 48 2022-12-19 php.d/20-ctype.ini a130289a1f48
@@ -91,12 +94,12 @@
 172 2020-11-28 php.d/40-msgpack.ini 0308711fb631
 62 2019-09-05 php.d/50-apc.ini 8b02f5332020
 1406 2022-02-16 php.d/50-redis.ini 4778f1607fdb
-378 2025-09-12 php.d/99-opcache-tuned.ini 7ca0aaa3d903
+379 2026-10-09 php.d/99-opcache-tuned.ini 1885b4b53c4c
 645 2022-12-19 php.d/opcache-default.blacklist 4eef0875e1a0
 
 # Packages
 # ist-wp-app-dv03.bu.edu
-# 2026-10-03T19:30:49Z
+# 2026-10-14T18:24:06Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-2.el7.remi.x86_64

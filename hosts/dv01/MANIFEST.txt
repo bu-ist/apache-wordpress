@@ -1,5 +1,5 @@
-# Files collected from ist-wp-app-dv01.bu.edu on 2026-10-03 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
-# Credentials, memory dumps and the s3proxy scripts are not listed.
+# Files collected from ist-wp-app-dv01.bu.edu on 2026-10-14 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Credentials, memory dumps and the s3proxy scripts other than docker.sh are not listed.
 # size modified path [sha256-12 | reason not recorded]
 442 2026-08-25 httpd/conf.d/00-block-crawlers.conf 8cb22bebdef6
 183 2026-08-25 httpd/conf.d/01-mysqlnd-timeout.conf 84a3fe817d6c
@@ -8,6 +8,7 @@
 2926 2023-05-30 httpd/conf.d/autoindex.conf 339f0a6bc069
 139 2024-09-23 httpd/conf.d/git.conf 171542f3f0de
 1252 2023-06-06 httpd/conf.d/php.conf 2f45408c6f0b
+2059 2026-10-14 httpd/conf.d/s3proxy/docker.sh 69bdc2e87516
 805 2025-08-26 httpd/conf.d/s3proxy/s3proxy.conf ab693f902f2f
 182 2025-08-26 httpd/conf.d/s3proxy/s3proxy.conf.bak-2025-08-26-1918 [not recorded: backup copy]
 1205 2025-08-26 httpd/conf.d/s3proxy/s3proxy.conf.save [not recorded: backup copy]
@@ -35,9 +36,11 @@
 4839 2025-08-26 httpd/conf.d/wordpress.conf.pre-fix.2025-08-27-1241 [not recorded: backup copy]
 4839 2025-08-26 httpd/conf.d/wordpress.conf.pre-fix.2025-08-27-1242 [not recorded: backup copy]
 3879 2023-11-14 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
+633 2026-10-09 httpd/conf.d/zz-deflate.conf 6446e066fe7c
 375 2026-10-03 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
 57 2025-08-27 httpd/conf.d/zz-keepalive.conf 9c4c6d60219e
+901 2026-10-09 httpd/conf.d/zz-opcache-endpoint.conf 5cbb6145076f
 133 2025-09-15 httpd/conf.d/zz-opcache-status.conf 6691b7f42c58
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
 139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac
@@ -53,7 +56,7 @@
 10870 2023-07-27 httpd/conf/httpd.conf~ [not recorded: backup copy]
 13064 2023-05-30 httpd/conf/magic 7e94a499c846
 114 2025-09-12 php.d/10-opcache-site.deploy.ini f144fa85a8eb
-327 2025-09-15 php.d/10-opcache-site.tuned.ini 24d873024efa
+328 2026-10-09 php.d/10-opcache-site.tuned.ini 0cb1c4ad25b3
 66 2025-09-12 php.d/10-opcache.ini 8c9a6e296454
 5561 2025-06-12 php.d/10-opcache.ini.bak.2025-09-05-1233 [not recorded: backup copy]
 44577 2025-03-03 php.d/15-xdebug.ini.bak-2025-08-26_1313 [not recorded: backup copy]
@@ -107,7 +110,7 @@
 62 2019-09-05 php.d/50-apc.ini 8b02f5332020
 1406 2023-03-04 php.d/50-redis.ini 4778f1607fdb
 38 2025-08-29 php.d/99-opcache-off.ini.disabled 5b0e783db522
-378 2025-11-18 php.d/99-opcache-tuned.ini 321f3e2acc26
+379 2026-10-09 php.d/99-opcache-tuned.ini baac94d6de3d
 378 2025-09-12 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
 328 2025-09-05 php.d/99-opcache-tuned.ini.bak.2025-09-05-1205 [not recorded: backup copy]
 285 2025-09-11 php.d/99-opcache-tuned.ini.bak.2025-09-11-1609 [not recorded: backup copy]
@@ -118,7 +121,7 @@
 
 # Packages
 # ist-wp-app-dv01.bu.edu
-# 2026-10-03T17:59:56Z
+# 2026-10-14T18:23:56Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-7.el7.remi.x86_64
