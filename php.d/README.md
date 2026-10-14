@@ -4,32 +4,34 @@ This directory contains PHP OPcache configuration files that should be deployed 
 
 ## File Loading Order
 
-PHP loads `.ini` files in **alphanumeric order**. The configuration values from later files override earlier ones:
+PHP loads `.ini` files in name order, and a value from a later file overrides an earlier one. `-` sorts before `.`, so the order is:
 
-1. **10-opcache.ini** - Base OPcache enablement
-2. **10-opcache-site.deploy.ini** - Deployment-specific settings
-3. **10-opcache-site.tuned.ini** - Site-specific tuning
+1. **10-opcache-site.deploy.ini** - Deployment-specific settings
+2. **10-opcache-site.tuned.ini** - Site-specific tuning
+3. **10-opcache.ini** - Base OPcache enablement
 4. **99-opcache-tuned.ini** - Global tuning (loaded last, takes precedence)
 
 ## Effective Configuration
 
-Due to the loading order, the **effective** OPcache settings are:
+Values set by `/etc/php.d` on every host in this environment (te01, te02), collected October 14, 2026. Where several files set a value, the last one loaded wins.
 
-| Setting                           | Value  | Source File                                    |
-| --------------------------------- | ------ | ---------------------------------------------- |
-| `opcache.enable`                  | 1      | 99-opcache-tuned.ini                           |
-| `opcache.enable_cli`              | 1      | 99-opcache-tuned.ini                           |
-| `opcache.memory_consumption`      | 512    | 99-opcache-tuned.ini                           |
-| `opcache.interned_strings_buffer` | 16     | 99-opcache-tuned.ini                           |
-| `opcache.max_accelerated_files`   | 200000 | 99-opcache-tuned.ini                           |
-| `opcache.validate_timestamps`     | 1      | 99-opcache-tuned.ini                           |
-| `opcache.revalidate_freq`         | 2      | 99-opcache-tuned.ini                           |
-| `opcache.revalidate_path`         | 1      | 99-opcache-tuned.ini                           |
-| `opcache.file_update_protection`  | 2      | 10-opcache-site.tuned.ini                      |
-| `opcache.save_comments`           | 1      | 99-opcache-tuned.ini                           |
-| `opcache.enable_file_override`    | 1      | 99-opcache-tuned.ini                           |
-| `opcache.file_cache_only`         | 0      | 99-opcache-tuned.ini                           |
-| `opcache.huge_code_pages`         | 0      | 10-opcache.ini                                 |
+| Setting | Value |
+| --- | --- |
+| `opcache.enable` | 1 |
+| `opcache.enable_cli` | 0 |
+| `opcache.enable_file_override` | 1 |
+| `opcache.file_cache_only` | 0 |
+| `opcache.file_update_protection` | 2 |
+| `opcache.huge_code_pages` | 0 |
+| `opcache.interned_strings_buffer` | 64 |
+| `opcache.max_accelerated_files` | 200000 |
+| `opcache.memory_consumption` | 512 |
+| `opcache.revalidate_freq` | 1 |
+| `opcache.revalidate_path` | 1 |
+| `opcache.save_comments` | 1 |
+| `opcache.validate_timestamps` | 1 |
+| `realpath_cache_size` | 4096K |
+| `realpath_cache_ttl` | 300 |
 
 ## Verification
 
@@ -69,13 +71,13 @@ grep -r "opcache\." /etc/php.d/
 
 ## Environment Consistency
 
-These configuration files are deployed identically across all environments:
+Each environment branch records its own hosts:
 
-- **Development**: ist-wp-app-dv01, ist-wp-app-dv02
-- **Test**: ist-wp-app-te01, ist-wp-app-te02
-- **Production**: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
+- **Development** (`devl`): ist-wp-app-dv01, dv02, dv03
+- **Test** (`test`): ist-wp-app-te01, te02
+- **Production** (`prod`): ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
 
-All servers run **PHP 7.4.33** with optimized OPcache settings deployed Nov 19, 2025.
+The environments' OPcache settings differ; the top-level `README.md` compares them. All hosts run **PHP 7.4.33**.
 
 ## Key Configuration Decisions
 
@@ -90,11 +92,11 @@ The 4-file structure allows for:
 ### Important Settings Explained
 
 - **opcache.validate_timestamps=1** - OPcache checks file timestamps for changes
-- **opcache.revalidate_freq=2** - Check for changes every 2 seconds (responsive to updates)
+- **opcache.revalidate_freq=1** - Seconds between checks for changed files
 - **opcache.revalidate_path=1** - Validate full paths (ensures correct file resolution)
 - **opcache.max_accelerated_files=200000** - Cache up to 200K PHP files (sufficient for multisite)
-- **opcache.memory_consumption=512** - Allocate 512MB for OPcache
-- **opcache.enable_cli=1** - Enable OPcache for CLI scripts (useful for WP-CLI)
+- **opcache.memory_consumption=512** - Shared memory for OPcache, in MB
+- **opcache.enable_cli=0** - OPcache is off for CLI scripts such as WP-CLI
 
 ### Optimization Notes
 
