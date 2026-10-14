@@ -1,10 +1,11 @@
-# Files collected from ist-wp-app-pr01.bu.edu on 2026-10-03 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
-# Credentials, memory dumps and the s3proxy scripts are not listed.
+# Files collected from ist-wp-app-pr01.bu.edu on 2026-10-14 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Credentials, memory dumps and the s3proxy scripts other than docker.sh are not listed.
 # size modified path [sha256-12 | reason not recorded]
 366 2023-05-30 httpd/conf.d/README 8935e31406a1
 2926 2023-05-30 httpd/conf.d/autoindex.conf 339f0a6bc069
 139 2024-09-23 httpd/conf.d/git.conf 171542f3f0de
 1252 2023-05-11 httpd/conf.d/php.conf 2f45408c6f0b
+2059 2026-10-14 httpd/conf.d/s3proxy/docker.sh 69bdc2e87516
 1205 2025-08-26 httpd/conf.d/s3proxy/s3proxy.conf 67e69ce8b4c7
 83 2023-06-22 httpd/conf.d/server-status.conf 7cec7ab2f68e
 1389 2025-12-21 httpd/conf.d/shib.conf 15835e1abce4
@@ -36,7 +37,7 @@
 10870 2023-07-06 httpd/conf/httpd.conf~ [not recorded: backup copy]
 13064 2023-05-30 httpd/conf/magic 7e94a499c846
 114 2025-09-12 php.d/10-opcache-site.deploy.ini f144fa85a8eb
-489 2025-09-17 php.d/10-opcache-site.tuned.ini 2c58378ec4cc
+490 2026-10-09 php.d/10-opcache-site.tuned.ini 3769782a8e2b
 144 2025-09-11 php.d/10-opcache.ini e8f827929449
 5558 2023-05-11 php.d/10-opcache.ini.bak.2025-09-05-1246 [not recorded: backup copy]
 44578 2025-02-22 php.d/15-xdebug.ini c8958b3e081b
@@ -85,14 +86,14 @@
 172 2020-11-28 php.d/40-msgpack.ini 0308711fb631
 62 2019-09-05 php.d/50-apc.ini 8b02f5332020
 1406 2023-03-04 php.d/50-redis.ini 4778f1607fdb
-304 2025-11-19 php.d/99-opcache-tuned.ini 8a459a1f73b8
+305 2026-10-09 php.d/99-opcache-tuned.ini b81d6c84f35d
 305 2025-09-11 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
 645 2023-05-11 php.d/opcache-default.blacklist 4eef0875e1a0
 94 2025-09-17 php.d/zz-opcache-local.ini.disabled 863c79a21164
 
 # Packages
 # ist-wp-app-pr01.bu.edu
-# 2026-10-03T18:00:50Z
+# 2026-10-14T18:24:22Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-6.el7.remi.x86_64
