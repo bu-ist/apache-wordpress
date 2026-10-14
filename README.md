@@ -25,26 +25,30 @@ OPcache settings are managed through PHP .ini files in the `php.d/` directory, w
 
 This repository uses branches to track configuration for each environment:
 
-- **devl** branch → Development servers: ist-wp-app-dv01, ist-wp-app-dv02
+- **devl** branch → Development servers: ist-wp-app-dv01, ist-wp-app-dv02, ist-wp-app-dv03
 - **test** branch → Test servers: ist-wp-app-te01, ist-wp-app-te02
 - **prod** branch → Production servers: ist-wp-app-pr01, pr02, pr03, pr04, pr05, pr06
-- **olap** branch → OLAP environment
+- **olap** branch → The 2023 s3proxy setup for S3 Object Lambda access points (README, image build and key rotation notes). Not an environment; its `docker.sh` no longer matches any host.
 - **scripts** branch → Utility scripts for inventory collection and verification
 
 All environments run PHP 7.4.33 with Apache HTTP Server.
 
 ### Current OPcache Configuration Status
 
-As of November 19, 2025:
+Values set by `/etc/php.d` on every host, collected October 14, 2026:
 
-- **Phase 2 PROD Cleanup Complete**: All 6 PROD servers (pr01-pr06) updated
-- **Clean 4-file structure** implemented across all environments
-- **Optimized settings**: 512MB memory, 200K files, revalidate_freq=2, revalidate_path=1
-- Configuration verified and deployed to all DEV, TEST, and PROD servers
-- See `OPCACHE_MIGRATION.md` for deployment procedures
+| Setting | DEVL | TEST | PROD |
+| --- | --- | --- | --- |
+| `opcache.memory_consumption` | 1024 | 512 | 1024 |
+| `opcache.interned_strings_buffer` | 64 | 64 | 64 |
+| `opcache.max_accelerated_files` | 200000 | 200000 | 200000 |
+| `opcache.revalidate_freq` | 1 (dv03: 2) | 1 | 2 |
+| `opcache.enable_cli` | 0 | 0 | 0 |
+
+`php.d/README.md` lists every OPcache setting for this branch's hosts. See `OPCACHE_MIGRATION.md` for deployment procedures.
 
 ## Host-specific files
 
 Files identical on every host in this environment are at their usual paths. A file that differs between hosts, or exists on only some of them, is under `hosts/<host>/` at the same relative path instead.
 
-`hosts/<host>/MANIFEST.txt` lists every file collected from that host (size, date, path, SHA-256 prefix) and its httpd, mod_ssl, php and shibboleth package versions. Backup copies are listed but not recorded. Credentials, memory dumps and the s3proxy scripts are not listed, though `conf.d/s3proxy/docker.sh` is recorded.
+`hosts/<host>/MANIFEST.txt` lists every file collected from that host (size, date, path, SHA-256 prefix) and its httpd, mod_ssl, php and shibboleth package versions. Backup copies are listed but not recorded. Credentials, memory dumps and the s3proxy scripts other than `docker.sh` are not listed.
