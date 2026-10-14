@@ -1,11 +1,12 @@
-# Files collected from ist-wp-app-te02.bu.edu on 2026-10-03 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
-# Credentials, memory dumps and the s3proxy scripts are not listed.
+# Files collected from ist-wp-app-te02.bu.edu on 2026-10-14 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Credentials, memory dumps and the s3proxy scripts other than docker.sh are not listed.
 # size modified path [sha256-12 | reason not recorded]
 366 2023-05-30 httpd/conf.d/README 8935e31406a1
 2926 2023-05-30 httpd/conf.d/autoindex.conf 339f0a6bc069
 476 2026-02-21 httpd/conf.d/block-career-bot.conf bb5c58bd5b59
 139 2024-09-23 httpd/conf.d/git.conf 171542f3f0de
 1252 2023-05-11 httpd/conf.d/php.conf 2f45408c6f0b
+2192 2026-10-14 httpd/conf.d/s3proxy/docker.sh 0f6656190762
 1759 2024-03-15 httpd/conf.d/s3proxy/s3proxy.conf d6ac87c88321
 83 2023-08-23 httpd/conf.d/server-status.conf 7cec7ab2f68e
 1423 2026-01-08 httpd/conf.d/shib.conf 56e7a3ff070b
@@ -19,8 +20,10 @@
 4403 2023-11-15 httpd/conf.d/wordpress.conf.111523.bkp [not recorded: backup copy]
 4060 2024-01-25 httpd/conf.d/wordpress.conf.20240125 [not recorded: backup copy]
 4406 2023-10-05 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
+633 2026-10-09 httpd/conf.d/zz-deflate.conf 6446e066fe7c
 375 2026-10-03 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
+901 2026-10-09 httpd/conf.d/zz-opcache-endpoint.conf 5cbb6145076f
 133 2025-09-15 httpd/conf.d/zz-opcache-status.conf 6691b7f42c58
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
 139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac
@@ -85,13 +88,13 @@
 172 2020-11-28 php.d/40-msgpack.ini 0308711fb631
 62 2019-09-05 php.d/50-apc.ini 8b02f5332020
 1406 2023-03-04 php.d/50-redis.ini 4778f1607fdb
-378 2025-11-18 php.d/99-opcache-tuned.ini 321f3e2acc26
+378 2026-10-09 php.d/99-opcache-tuned.ini 55f52ee2d2ae
 378 2025-09-12 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
 645 2023-05-11 php.d/opcache-default.blacklist 4eef0875e1a0
 
 # Packages
 # ist-wp-app-te02.bu.edu
-# 2026-10-03T18:00:38Z
+# 2026-10-14T18:24:18Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-6.el7.remi.x86_64

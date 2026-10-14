@@ -4,6 +4,8 @@
 **Author**: Daniel Crews
 **Purpose**: Align repository configuration with actual server deployment
 
+> This document describes the configuration as of November 2025. Current values for each environment are in `README.md` and `php.d/README.md`.
+
 ## Overview
 
 This document describes the migration of OPcache configuration from Apache `php_admin_value` directives to PHP `.ini` files, matching the actual deployment on DEV/TEST/PROD servers.
@@ -247,7 +249,7 @@ All servers run **PHP 7.4.33** with optimized OPcache settings:
 
 ## Performance Implications
 
-### Current Settings (All Environments)
+### Settings as of November 2025
 
 The current configuration is optimized for **WordPress multisite** across all environments (Phase 2, Nov 19, 2025):
 
