@@ -32,11 +32,10 @@ IMAGE=${CUSTOM_IMAGE:-"aws-sigv4-proxy"}
 run() {
   docker rm -f proxy 2> /dev/null
 
-  # Bounded, and spared by the host OOM killer (dockerd also runs at -500).
+  # Spare the proxy from the host OOM killer (dockerd also runs at -500).
   docker run \
     -d \
     --restart unless-stopped \
-    --memory 1g \
     --oom-score-adj -500 \
     --name proxy \
     --env-file credentials.sh \
