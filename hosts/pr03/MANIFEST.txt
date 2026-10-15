@@ -16,8 +16,10 @@
 824 2023-05-30 httpd/conf.d/welcome.conf 08283cb45c8a
 4598 2024-08-01 httpd/conf.d/wordpress.conf 314163f30585
 4482 2024-02-08 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
+633 2026-10-14 httpd/conf.d/zz-deflate.conf 6446e066fe7c
 375 2026-10-02 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
 7025 2021-11-10 httpd/conf.d/zz-ist-httpd-common.conf 0bc7eedeb3f5
+901 2026-10-14 httpd/conf.d/zz-opcache-endpoint.conf 5cbb6145076f
 159 2025-09-11 httpd/conf.d/zz-opcache-probe.conf 9141a089301e
 166 2025-09-15 httpd/conf.d/zz-opcache-status.conf 680ecd893c86
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
@@ -90,7 +92,7 @@
 
 # Packages
 # ist-wp-app-pr03.bu.edu
-# 2026-10-14T18:24:31Z
+# 2026-10-15T00:37:47Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-6.el7.remi.x86_64
