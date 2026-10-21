@@ -1,4 +1,4 @@
-# Files collected from ist-wp-app-pr02.bu.edu on 2026-10-14 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Files collected from ist-wp-app-pr02.bu.edu on 2026-10-21 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
 # Credentials, memory dumps and the s3proxy scripts other than docker.sh are not listed.
 # size modified path [sha256-12 | reason not recorded]
 366 2023-05-30 httpd/conf.d/README 8935e31406a1
@@ -15,7 +15,7 @@
 9443 2023-05-30 httpd/conf.d/ssl.conf~ [not recorded: backup copy]
 1252 2023-05-30 httpd/conf.d/userdir.conf 7e3e5b4f1714
 824 2023-05-30 httpd/conf.d/welcome.conf 08283cb45c8a
-4557 2024-08-01 httpd/conf.d/wordpress.conf 3c3319974982
+4505 2026-10-21 httpd/conf.d/wordpress.conf 1c8985b8ab35
 4441 2024-02-08 httpd/conf.d/wordpress.conf~ [not recorded: backup copy]
 633 2026-10-14 httpd/conf.d/zz-deflate.conf 6446e066fe7c
 375 2026-10-02 httpd/conf.d/zz-error-log-format.conf 40a8d1ae26f7
@@ -23,6 +23,7 @@
 901 2026-10-14 httpd/conf.d/zz-opcache-endpoint.conf 5cbb6145076f
 159 2025-09-11 httpd/conf.d/zz-opcache-probe.conf 9141a089301e
 166 2025-09-15 httpd/conf.d/zz-opcache-status.conf 680ecd893c86
+691 2026-10-21 httpd/conf.d/zz-php2shell-check.conf 4e60261c7030
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
 139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac
 41 2023-05-30 httpd/conf.modules.d/00-lua.conf edf701795137
@@ -88,12 +89,13 @@
 1406 2023-03-04 php.d/50-redis.ini 4778f1607fdb
 305 2026-10-09 php.d/99-opcache-tuned.ini b81d6c84f35d
 305 2025-09-11 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
+240 2026-10-21 php.d/99-php2shell-mitigation.ini 85fc16736b91
 645 2023-05-11 php.d/opcache-default.blacklist 4eef0875e1a0
 94 2025-09-17 php.d/zz-opcache-local.ini.disabled 863c79a21164
 
 # Packages
 # ist-wp-app-pr02.bu.edu
-# 2026-10-15T00:37:42Z
+# 2026-10-21T19:04:58Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-6.el7.remi.x86_64
