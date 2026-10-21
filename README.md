@@ -33,6 +33,16 @@ This repository uses branches to track configuration for each environment:
 
 All environments run PHP 7.4.33 with Apache HTTP Server.
 
+### Interim php2shell settings
+
+Since 2026-10-21 every host carries three temporary changes for CVE-2026-109618/-109619, to be removed once a patched PHP is installed:
+
+- `conf.d/wordpress.conf`: `php_admin_value memory_limit -1` instead of `256M`, and no `php_admin_flag allow_call_time_pass_reference` line.
+- `php.d/99-php2shell-mitigation.ini`: `session.upload_progress.enabled = 0`.
+- `conf.d/zz-php2shell-check.conf`: a loopback-only `/__php2shell-check.php` that reports the PHP version, `memory_limit` and `session.upload_progress.enabled` the web SAPI uses. Its script, `/usr/local/share/bu-php2shell/check.php`, is outside the paths this repo tracks.
+
+Each host keeps its previous `wordpress.conf` in `/root/conf-backups-<host>/`.
+
 ### Current OPcache Configuration Status
 
 Values set by `/etc/php.d` on every host, collected October 14, 2026:
