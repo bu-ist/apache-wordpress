@@ -33,12 +33,12 @@ This repository uses branches to track configuration for each environment:
 
 All environments run PHP 7.4.33 with Apache HTTP Server.
 
-### Interim php2shell settings
+### php2shell settings
 
-Since 2026-10-21 every host carries three temporary changes for CVE-2026-109618/-109619, to be removed once a patched PHP is installed:
+Every host runs `php-7.4.33-6.1.el7.bu`, Remi's 7.4.33-6 spec rebuilt with php.net's fix for CVE-2026-109618/-109619 (php-src `712e60f9ed`). A request that reaches `memory_limit` ends its worker (`_exit(1)`), so the client gets a dropped connection, and the error log line reads `Fatal error: Allowed memory size…` without the `PHP ` prefix. The build has no thread-safe (ZTS) module, so `conf.modules.d/15-php.conf` has no `libphp7-zts.so` block.
 
-- `conf.d/wordpress.conf`: `php_admin_value memory_limit -1` instead of `256M`, and no `php_admin_flag allow_call_time_pass_reference` line.
-- `php.d/99-php2shell-mitigation.ini`: `session.upload_progress.enabled = 0`.
+- `conf.d/wordpress.conf`: `php_admin_value memory_limit 256M`, and no `php_admin_flag allow_call_time_pass_reference` line (the directive was removed in PHP 5.4).
+- `php.d/99-php2shell-mitigation.ini`: `session.upload_progress.enabled = 0`. The patched build disables upload progress in code; the file keeps it off on a stock Remi build.
 - `conf.d/zz-php2shell-check.conf`: a loopback-only `/__php2shell-check.php` that reports the PHP version, `memory_limit` and `session.upload_progress.enabled` the web SAPI uses. Its script, `/usr/local/share/bu-php2shell/check.php`, is outside the paths this repo tracks.
 
 Each host keeps its previous `wordpress.conf` in `/root/conf-backups-<host>/`.
