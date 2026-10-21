@@ -1,4 +1,4 @@
-# Files collected from ist-wp-app-dv01.bu.edu on 2026-10-14 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
+# Files collected from ist-wp-app-dv01.bu.edu on 2026-10-21 (/etc/httpd/{conf,conf.d,conf.modules.d}, /etc/php.d).
 # Credentials, memory dumps and the s3proxy scripts other than docker.sh are not listed.
 # size modified path [sha256-12 | reason not recorded]
 442 2026-08-25 httpd/conf.d/00-block-crawlers.conf 8cb22bebdef6
@@ -23,7 +23,7 @@
 9484 2023-04-07 httpd/conf.d/ssl.conf~ [not recorded: backup copy]
 1252 2023-05-30 httpd/conf.d/userdir.conf 7e3e5b4f1714
 824 2023-05-30 httpd/conf.d/welcome.conf 08283cb45c8a
-4839 2025-08-26 httpd/conf.d/wordpress.conf 5f97ec8313df
+4787 2026-10-21 httpd/conf.d/wordpress.conf 9ecf637598a7
 4010 2023-04-18 httpd/conf.d/wordpress.conf.11738.2023-04-19@13:57:02~ [not recorded: backup copy]
 4491 2025-08-26 httpd/conf.d/wordpress.conf.bak-2025-08-26-1856 [not recorded: backup copy]
 4699 2025-08-26 httpd/conf.d/wordpress.conf.bak-2025-08-26-1900 [not recorded: backup copy]
@@ -42,6 +42,7 @@
 57 2025-08-27 httpd/conf.d/zz-keepalive.conf 9c4c6d60219e
 901 2026-10-09 httpd/conf.d/zz-opcache-endpoint.conf 5cbb6145076f
 133 2025-09-15 httpd/conf.d/zz-opcache-status.conf 6691b7f42c58
+691 2026-10-21 httpd/conf.d/zz-php2shell-check.conf 4e60261c7030
 3739 2023-05-30 httpd/conf.modules.d/00-base.conf 4c1abbbf05db
 139 2023-05-30 httpd/conf.modules.d/00-dav.conf d963ee22b7ac
 41 2023-05-30 httpd/conf.modules.d/00-lua.conf edf701795137
@@ -114,6 +115,7 @@
 378 2025-09-12 php.d/99-opcache-tuned.ini.bak [not recorded: backup copy]
 328 2025-09-05 php.d/99-opcache-tuned.ini.bak.2025-09-05-1205 [not recorded: backup copy]
 285 2025-09-11 php.d/99-opcache-tuned.ini.bak.2025-09-11-1609 [not recorded: backup copy]
+240 2026-10-21 php.d/99-php2shell-mitigation.ini 85fc16736b91
 114 2025-02-25 php.d/99-uploads.ini.disabled ff62452a2ae8
 645 2023-06-06 php.d/opcache-default.blacklist 4eef0875e1a0
 220 2025-09-11 php.d/zz-opcache-cli.ini.bak.2025-09-11-1604 [not recorded: backup copy]
@@ -121,7 +123,7 @@
 
 # Packages
 # ist-wp-app-dv01.bu.edu
-# 2026-10-14T21:32:58Z
+# 2026-10-21T19:04:30Z
 # httpd-2.4.6-99.el7.centos.1.x86_64
 # mod_ssl-2.4.6-99.el7.centos.1.x86_64
 # php-7.4.33-7.el7.remi.x86_64
